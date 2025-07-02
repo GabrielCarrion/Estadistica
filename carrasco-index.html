@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta ESPE - Uso de Aplicaciones de Idiomas</title>
+    <link rel="icon" type="image/png" href="imagen/logo.png">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+
+        body {
+            background-image: url('imagen/fondo5.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-bar">
+        <div class="logo">
+            <img src="imagen/logo.png" alt="ESPE Logo"> 
+            </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="primero.html">Primer Parcial</a></li>
+                <li><a href="segundo.html">Segundo Parcial</a></li>
+                <li><a href="tercero.html">Tercer Parcial</a></li>
+            </ul>
+        </nav>
+        </div>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2>Carlos Andés Carrasco Novoa</h2>
+            <h2>Universidad de las Fuerzas Armadas ESPE</h2>
+            <div class="language-selector-wrapper">
+                <div class="custom-dropdown">
+                    <button class="dropdown-button" id="dropdownButton">
+                        Selecciona un alumno
+                        <span class="dropdown-arrow">&#9660;</span> </button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="carrasco-1.html">Primer Parcial</a>
+                        <a href="carrasco-2.html">Segundo Parcial</a>
+                        <a href="carrasco-3.html">Tercer Parcial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownButton = document.getElementById('dropdownButton');
+            const dropdownContent = document.getElementById('dropdownContent');
+
+            dropdownButton.addEventListener('click', function(event) {
+                dropdownContent.classList.toggle('show');
+                event.stopPropagation(); 
+            });
+
+            window.addEventListener('click', function(event) {
+                if (!event.target.matches('.dropdown-button') && !dropdownContent.contains(event.target)) {
+                    if (dropdownContent.classList.contains('show')) {
+                        dropdownContent.classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

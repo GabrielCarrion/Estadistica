@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de PDF - ESPE</title>
+    <link rel="icon" type="image/png" href="imagen/logo.png">
+    <link rel="stylesheet" href="estilos4.css">
+    </head>
+<body>
+
+    <div class="header-bar">
+        <div class="logo">
+            <img src="imagen/logo.png" alt="ESPE Logo"> 
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="primero.html">Primer Parcial</a></li>
+                <li><a href="segundo.html">Segundo Parcial</a></li>
+                <li><a href="tercero.html">Tercer Parcial</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <h3 style="margin: 0;">Descarga Exel</h3>
+            <a href="documentos/carrasco/exel-1-2.xlsx" download="exel-1-2" style="background: none; box-shadow: none; border: none; padding: 0;">
+                <img src="imagen/exel3.png" alt="Descargar .omv" style="display: block; width: 32px; height: 32px;">
+            </a>
+        </div>
+    </div>
+
+    <div class="pdf-container">
+        <iframe src="documentos/carrasco/doc1-2.pdf" width="100%" height="100%" style="border: none;">
+            Este navegador no soporta PDFs incrustados. Puedes <a href="documentos/carrasco/doc1-2.pdf" download="Nombre_del_Documento.pdf">descargar el PDF aquí</a>.
+        </iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtn = document.getElementById('dropdownBtn');
+            const dropdownContent = document.getElementById('dropdownContent');
+
+            if (dropdownBtn && dropdownContent) {
+                dropdownBtn.addEventListener('click', function() {
+                    dropdownContent.classList.toggle('show');
+                    dropdownBtn.classList.toggle('show');
+                });
+
+                window.addEventListener('click', function(event) {
+                    if (!event.target.matches('#dropdownBtn') && !event.target.closest('.custom-dropdown')) {
+                        if (dropdownContent.classList.contains('show')) {
+                            dropdownContent.classList.remove('show');
+                            dropdownBtn.classList.remove('show');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

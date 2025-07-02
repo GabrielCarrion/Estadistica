@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta ESPE - Uso de Aplicaciones de Idiomas</title>
+    <link rel="icon" type="image/png" href="imagen/logo.png">
+    <link rel="stylesheet" href="estilos3.css">
+    <style>
+        body {
+            background-image: url('imagen/fondo9.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .content-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .image-item {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-item:hover {
+            transform: scale(1.05);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .image-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay p {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-bar">
+        <div class="logo">
+            <img src="imagen/logo.png" alt="ESPE Logo"> 
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="primero.html">Primer Parcial</a></li>
+                <li><a href="tercero.html">Tercer Parcial</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Segundo Parcial</h1>
+            <h2>Universidad de las Fuerzas Armadas ESPE</h2>
+            
+            <div class="language-selector-wrapper">
+                <div class="custom-dropdown">
+                    <button class="dropdown-button" id="dropdownBtn">
+                        Selecciona un alumno <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="carrasco-2.html">Carrasco Carlos</a>
+                        <a href="carrion-2.html">Carrión Francisco</a>
+                        <a href="sebastian-2.html">Sebastian Tonato</a>
+                        <a href="anthony-2.html">Anthony Morales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-section">
+        <h2>Video Informativo Estadistica</h2>
+        <div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/52eVE5InzDw?si=THg97f2vvLJZPPMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+
+        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtn = document.getElementById('dropdownBtn');
+            const dropdownContent = document.getElementById('dropdownContent');
+
+            if (dropdownBtn && dropdownContent) {
+                dropdownBtn.addEventListener('click', function() {
+                    dropdownContent.classList.toggle('show');
+                    dropdownBtn.classList.toggle('show');
+                });
+
+                window.addEventListener('click', function(event) {
+                    if (!event.target.matches('#dropdownBtn') && !event.target.closest('.custom-dropdown')) {
+                        if (dropdownContent.classList.contains('show')) {
+                            dropdownContent.classList.remove('show');
+                            dropdownBtn.classList.remove('show');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
